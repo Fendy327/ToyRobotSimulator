@@ -1,0 +1,11 @@
+D:\Development\ToyRobotSimulator-master\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.deps.json
+D:\Development\ToyRobotSimulator-master\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.runtimeconfig.json
+D:\Development\ToyRobotSimulator-master\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.runtimeconfig.dev.json
+D:\Development\ToyRobotSimulator-master\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.dll
+D:\Development\ToyRobotSimulator-master\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.pdb
+D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.csproj.CoreCompileInputs.cache
+D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.AssemblyInfoInputs.cache
+D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.AssemblyInfo.cs
+D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.dll
+D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.pdb
+D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.csprojAssemblyReference.cache
