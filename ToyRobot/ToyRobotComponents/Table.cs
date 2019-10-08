@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ToyRobot
 {
-    public class Table
+    public class Table: ITable
     {
         public int row;
         public int column;

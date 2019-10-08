@@ -6,11 +6,11 @@ namespace ToyRobot
 {
     public enum CommandEnum
     {
-        Place,
-        Move,
-        Left,
-        Right,
-        Report
+        PLACE,
+        MOVE,
+        LEFT,
+        RIGHT,
+        REPORT
 
     }
 }

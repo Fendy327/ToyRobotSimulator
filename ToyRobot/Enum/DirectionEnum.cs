@@ -6,9 +6,9 @@ namespace ToyRobot
 {
     public enum DirectionEnum
     {
-        North,
-        East,
-        South,
-        West
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
     }
 }

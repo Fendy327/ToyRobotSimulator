@@ -9,7 +9,7 @@ namespace ToyRobot
         public static bool ValidateFirstCommand(string command)
         {
             var commandEnum = ValidateWithFirstLetterIsCorrect(command);
-            if (commandEnum != CommandEnum.Place)
+            if (commandEnum != CommandEnum.PLACE)
             {
                 throw new InvalidCommandException("The First command should start from PLACE X,Y,F (Where X and Y are integers and F must be either NORTH, SOUTH, EAST or WEST).");
             }
@@ -20,14 +20,19 @@ namespace ToyRobot
             return true;
         }
 
-        public static void ValidationCommands(string command)
+        public static CommandEnum ValidationCommands(string command)
         {
             ValidateWithCommandIsNullOrEmpty(command);
             var commandEnum = ValidateWithFirstLetterIsCorrect(command);
-            if (commandEnum == CommandEnum.Place)
+            if (commandEnum == CommandEnum.PLACE)
             {
                 ValidateWithPlaceCommand(command);
             }
+            else
+            {
+                validateWithNonPlaceCommand(command);
+            }
+            return commandEnum;
         }
 
         private static void ValidateWithCommandIsNullOrEmpty(string command)
@@ -58,6 +63,16 @@ namespace ToyRobot
             if (!Enum.TryParse(placeCommand[2], true, out directionEnum))
             {
                 throw new InvalidCommandException("The Place command should start from PLACE X,Y,F, F must be either NORTH, SOUTH, EAST or WEST");
+            }
+
+        }
+
+        private static void validateWithNonPlaceCommand(string command)
+        {
+            string[] result = command.Split(' ');
+            if(result.Length > 1)
+            {
+                throw new InvalidCommandException("MOVE|LEFT|RIGHT|REPORT should not contain any extra characters or space");
             }
         }
     }

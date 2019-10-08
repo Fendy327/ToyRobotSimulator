@@ -25,17 +25,27 @@ The application should be able to read in any one of the following commands:
         RIGHT
         REPORT
        
-- To terminate the program you can either ctrl c or close the windows 
+- To terminate the program you can either EXIT or close the windows 
 
-- Please Start from PLACE X,Y,F
+- Please Start from PLACE X,Y,F.
+
+Enjoy!!!
 ");
-            Command command = new Command();
+         
+            Table table = new Table(5,5);
+            IToyRobot toyRobot = new ToyRobot();
+            Command command = new Command(table, toyRobot);
             while (true)
             {
                 try { 
                     var comString = Console.ReadLine();
-                    command.CommandHandler(comString);
-                }catch(InvalidCommandException ex)
+                    if (comString.ToUpper().Equals("EXIT"))
+                        break;
+                    var report = command.CommandHandler(comString, table);
+                    if (!string.IsNullOrEmpty(report))
+                        Console.WriteLine(report);
+                }
+                catch(InvalidCommandException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
