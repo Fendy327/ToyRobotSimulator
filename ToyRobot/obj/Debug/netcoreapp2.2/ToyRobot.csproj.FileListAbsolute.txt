@@ -9,3 +9,14 @@ D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobo
 D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.dll
 D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.pdb
 D:\Development\ToyRobotSimulator-master\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.csprojAssemblyReference.cache
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.deps.json
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.runtimeconfig.json
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.runtimeconfig.dev.json
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.dll
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\bin\Debug\netcoreapp2.2\ToyRobot.pdb
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.csprojAssemblyReference.cache
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.csproj.CoreCompileInputs.cache
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.AssemblyInfoInputs.cache
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.AssemblyInfo.cs
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.dll
+C:\Users\FENDY\Documents\ToyRobotSimulator\ToyRobot\obj\Debug\netcoreapp2.2\ToyRobot.pdb

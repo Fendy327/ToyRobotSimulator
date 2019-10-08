@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development\\ToyRobotSimulator-master\\ToyRobot\\ToyRobot.csproj": {}
+    "C:\\Users\\FENDY\\Documents\\ToyRobotSimulator\\ToyRobot\\ToyRobot.csproj": {}
   },
   "projects": {
-    "D:\\Development\\ToyRobotSimulator-master\\ToyRobot\\ToyRobot.csproj": {
+    "C:\\Users\\FENDY\\Documents\\ToyRobotSimulator\\ToyRobot\\ToyRobot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\ToyRobotSimulator-master\\ToyRobot\\ToyRobot.csproj",
+        "projectUniqueName": "C:\\Users\\FENDY\\Documents\\ToyRobotSimulator\\ToyRobot\\ToyRobot.csproj",
         "projectName": "ToyRobot",
-        "projectPath": "D:\\Development\\ToyRobotSimulator-master\\ToyRobot\\ToyRobot.csproj",
+        "projectPath": "C:\\Users\\FENDY\\Documents\\ToyRobotSimulator\\ToyRobot\\ToyRobot.csproj",
         "packagesPath": "C:\\Users\\FENDY\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\ToyRobotSimulator-master\\ToyRobot\\obj\\",
+        "outputPath": "C:\\Users\\FENDY\\Documents\\ToyRobotSimulator\\ToyRobot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
