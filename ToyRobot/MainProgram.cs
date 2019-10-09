@@ -31,21 +31,23 @@ The application should be able to read in any one of the following commands:
 
 Enjoy!!!
 ");
-         
-            Table table = new Table(5,5);
+
+            Table table = new Table(5, 5);
             IToyRobot toyRobot = new ToyRobot();
             Command command = new Command(table, toyRobot);
             while (true)
             {
-                try { 
+                try
+                {
                     var comString = Console.ReadLine();
+                    if (comString == null) break;
                     if (comString.ToUpper().Equals("EXIT"))
                         break;
-                    var report = command.CommandHandler(comString, table);
+                    var report = command.CommandHandler(comString);
                     if (!string.IsNullOrEmpty(report))
                         Console.WriteLine(report);
                 }
-                catch(InvalidCommandException ex)
+                catch (InvalidCommandException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }

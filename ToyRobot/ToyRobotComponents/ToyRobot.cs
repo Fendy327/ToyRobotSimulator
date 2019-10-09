@@ -8,35 +8,34 @@ namespace ToyRobot
     {
         public List<string> listOfDirections = new List<string>() { "EAST", "SOUTH", "WEST", "NORTH" };
 
-        public int row = 0;
-        public int column = 0;
-        public string direction;
-
-        public void Place(int row, int column, string direction)
+        public string Direction{get; set;}
+        public int X { get; set; }
+        public int Y { get; set; }
+        public void Place(int x, int y, string direction)
         {
-            this.row = row;
-            this.column = column;
-            this.direction = direction;
+            X = x;
+            Y = y;
+            Direction = direction;
         }
 
         public void Move()
         {
             DirectionEnum directionEnum;
-            Enum.TryParse(direction, true, out directionEnum);
+            Enum.TryParse(Direction, true, out directionEnum);
 
             switch (directionEnum)
             {
                 case DirectionEnum.EAST:
-                    row += 1;
+                    X += 1;
                     break;
                 case DirectionEnum.SOUTH:
-                    column -= 1;
+                    Y -= 1;
                     break;
                 case DirectionEnum.WEST:
-                    row -= 1;
+                    X -= 1;
                     break;
                 case DirectionEnum.NORTH:
-                    column += 1;
+                    Y += 1;
                     break;
 
             }
@@ -44,14 +43,15 @@ namespace ToyRobot
 
         public void TurnLeftOrRight(Boolean isLeft)
         {
-            int index = listOfDirections.IndexOf(direction.ToUpper());
+            if (string.IsNullOrEmpty(Direction)) return;
+            int index = listOfDirections.IndexOf(Direction.ToUpper());
             if (isLeft)
             {
-                direction = index == 0 ? listOfDirections[3] : listOfDirections[index - 1];
+                Direction = index == 0 ? listOfDirections[3] : listOfDirections[index - 1];
             }
             else
             {
-                direction = index == 3 ? listOfDirections[0] : listOfDirections[index + 1];
+                Direction = index == 3 ? listOfDirections[0] : listOfDirections[index + 1];
             }
 
 
@@ -59,7 +59,8 @@ namespace ToyRobot
 
         public string Report()
         {
-            return row + "," + column + "," + direction.ToUpper();
+            if (string.IsNullOrEmpty(Direction)) return null;
+            return X + "," + Y + "," + Direction.ToUpper();
         }
 
 

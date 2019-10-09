@@ -7,5 +7,6 @@ namespace ToyRobot
 {
     public interface ITable
     {
+        bool isValidPosition(int x, int y);
     }
 }

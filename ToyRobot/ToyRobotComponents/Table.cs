@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ToyRobot
 {
-    public class Table: ITable
+    public class Table : ITable
     {
         public int row;
         public int column;
@@ -15,5 +15,9 @@ namespace ToyRobot
             this.column = column;
         }
 
+        public bool isValidPosition(int x, int y)
+        {
+            return x >= 0 && x < row && y >= 0 && y < column;
+        }
     }
 }

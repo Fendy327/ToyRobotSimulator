@@ -15,7 +15,7 @@ namespace ToyRobot
             this.toyRobot = toyRobot;
         }
         public bool isFirstCommandValid;
-        public string CommandHandler(string command, Table table)
+        public string CommandHandler(string command)
         {
             var result = "";
             if (!isFirstCommandValid)
@@ -28,10 +28,14 @@ namespace ToyRobot
             {
                 case CommandEnum.PLACE:
                     string[] placeCommand = command.Substring(5).Split(new[] { ',' });
-                    toyRobot.Place(Convert.ToInt32(placeCommand[0]), Convert.ToInt32( placeCommand[1]), placeCommand[2]);
+                    int x = Convert.ToInt32(placeCommand[0]);
+                    int y = Convert.ToInt32(placeCommand[1]);
+                    if(table.isValidPosition(x,y))
+                         toyRobot.Place(x, y, placeCommand[2]);
                     break;
                 case CommandEnum.MOVE:
-                    toyRobot.Move();
+                    if (table.isValidPosition(toyRobot.X+1, toyRobot.Y + 1)&& table.isValidPosition(toyRobot.X - 1, toyRobot.Y - 1))
+                        toyRobot.Move();
                     break;
                 case CommandEnum.LEFT:
                     toyRobot.TurnLeftOrRight(true);

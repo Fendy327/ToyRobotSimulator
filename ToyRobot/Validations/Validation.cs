@@ -64,7 +64,6 @@ namespace ToyRobot
             {
                 throw new InvalidCommandException("The Place command should start from PLACE X,Y,F, F must be either NORTH, SOUTH, EAST or WEST");
             }
-
         }
 
         private static void validateWithNonPlaceCommand(string command)
