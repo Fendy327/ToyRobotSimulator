@@ -38,10 +38,10 @@ namespace ToyRobot
                         toyRobot.Move();
                     break;
                 case CommandEnum.LEFT:
-                    toyRobot.TurnLeftOrRight(true);
+                    toyRobot.TrunDirection(true);
                     break;
                 case CommandEnum.RIGHT:
-                    toyRobot.TurnLeftOrRight(false);
+                    toyRobot.TrunDirection(false);
                     break;
                 case CommandEnum.REPORT:
                     result = toyRobot.Report();

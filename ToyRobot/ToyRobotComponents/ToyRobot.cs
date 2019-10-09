@@ -41,7 +41,7 @@ namespace ToyRobot
             }
         }
 
-        public void TurnLeftOrRight(Boolean isLeft)
+        public void TrunDirection(Boolean isLeft)
         {
             if (string.IsNullOrEmpty(Direction)) return;
             int index = listOfDirections.IndexOf(Direction.ToUpper());

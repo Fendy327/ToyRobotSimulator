@@ -14,7 +14,7 @@ namespace ToyRobot
 
         void Move();
 
-        void TurnLeftOrRight(Boolean isLeft);
+        void TrunDirection(Boolean isLeft);
 
 
         string Report();
