@@ -7,50 +7,52 @@ namespace ToyRobot
 {
     public class Command
     {
-        public ITable table;
+
         public IToyRobot toyRobot;
-        public Command(ITable table, IToyRobot toyRobot)
-        {
-            this.table = table;
-            this.toyRobot = toyRobot;
-        }
+        public IValidation validation;
         public bool isFirstCommandValid;
+        public Command( IToyRobot toyRobot, IValidation validation)
+        {
+            this.toyRobot = toyRobot;
+            this.validation = validation;
+        }
         public string CommandHandler(string command)
         {
             var result = "";
+            //First Time must be valid
             if (!isFirstCommandValid)
             {
-                isFirstCommandValid = Validation.ValidateFirstCommand(command);
+                isFirstCommandValid = validation.ValidateFirstCommand(command);         
             }
-            var commandEnum =  Validation.ValidationCommands(command);
-
-            switch (commandEnum)
+            if (isFirstCommandValid)
             {
-                case CommandEnum.PLACE:
-                    string[] placeCommand = command.Substring(5).Split(new[] { ',' });
-                    int x = Convert.ToInt32(placeCommand[0]);
-                    int y = Convert.ToInt32(placeCommand[1]);
-                    if(table.isValidPosition(x,y))
-                         toyRobot.Place(x, y, placeCommand[2]);
-                    break;
-                case CommandEnum.MOVE:
-                    if (table.isValidPosition(toyRobot.X+1, toyRobot.Y + 1)&& table.isValidPosition(toyRobot.X - 1, toyRobot.Y - 1))
+                var commandEnum = validation.ValidationCommands(command);
+
+                switch (commandEnum)
+                {
+                    case CommandEnum.PLACE:
+                        string[] placeCommand = command.Substring(5).Split(new[] { ',' });
+                        int x = Convert.ToInt32(placeCommand[0]);
+                        int y = Convert.ToInt32(placeCommand[1]);
+                        toyRobot.Place(x, y, placeCommand[2]);
+                        break;
+                    case CommandEnum.MOVE:
                         toyRobot.Move();
-                    break;
-                case CommandEnum.LEFT:
-                    toyRobot.TrunDirection(true);
-                    break;
-                case CommandEnum.RIGHT:
-                    toyRobot.TrunDirection(false);
-                    break;
-                case CommandEnum.REPORT:
-                    result = toyRobot.Report();
-                    break;
+                        break;
+                    case CommandEnum.LEFT:
+                        toyRobot.TrunDirection(true);
+                        break;
+                    case CommandEnum.RIGHT:
+                        toyRobot.TrunDirection(false);
+                        break;
+                    case CommandEnum.REPORT:
+                        result = toyRobot.Report();
+                        break;
+                }
             }
             return result;
-            
-        }
 
+        }
 
     }
 }
