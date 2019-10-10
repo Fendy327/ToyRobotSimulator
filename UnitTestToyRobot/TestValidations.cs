@@ -21,8 +21,9 @@ namespace UnitTestToyRobot
         [DataRow("  , ,  ")]
         public void TestFirstCommand_ThrowInvalidCommandException(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.ThrowsException<InvalidCommandException>(()=> Validation.ValidateFirstCommand(com));
+            Assert.ThrowsException<InvalidCommandException>(()=> validation.ValidateFirstCommand(com));
         }
 
         [TestMethod]
@@ -32,13 +33,15 @@ namespace UnitTestToyRobot
         [DataRow("PLACE 0,0,eAST")]
         public void TestFirstCommand_SuccessWithRightCommand(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.IsTrue(Validation.ValidateFirstCommand(com));
+            Assert.IsTrue(validation.ValidateFirstCommand(com));
         }
 
         [TestMethod]
         [DataRow("place 0.0.north")]
         [DataRow("place 0.north")]
+        [DataRow("place 0,t,north")]
         [DataRow("place ")]
         [DataRow("place 0,0,northern")]
         [DataRow("place 0,0, ")]
@@ -48,8 +51,9 @@ namespace UnitTestToyRobot
         [DataRow("  Report ")]
         public void TestValidationCommands_ThrowInvalidCommandException(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.ThrowsException<InvalidCommandException>(() => Validation.ValidationCommands(com));
+            Assert.ThrowsException<InvalidCommandException>(() => validation.ValidationCommands(com));
         }
 
         [TestMethod]
@@ -59,8 +63,9 @@ namespace UnitTestToyRobot
         [DataRow("PLACE 0,0,eAST")]
         public void TestValidationCommands_SuccessWithPlaceCommand(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.AreEqual(CommandEnum.PLACE, Validation.ValidationCommands(com));
+            Assert.AreEqual(CommandEnum.PLACE, validation.ValidationCommands(com));
         }
 
         [TestMethod]
@@ -69,8 +74,9 @@ namespace UnitTestToyRobot
         [DataRow("LEFT")]
         public void TestValidationCommands_SuccessWithLeftCommand(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.AreEqual(CommandEnum.LEFT, Validation.ValidationCommands(com));
+            Assert.AreEqual(CommandEnum.LEFT, validation.ValidationCommands(com));
         }
         [TestMethod]
         [DataRow("Move")]
@@ -78,8 +84,9 @@ namespace UnitTestToyRobot
         [DataRow("MOVE")]
         public void TestValidationCommands_SuccessWithMoveCommand(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.AreEqual(CommandEnum.MOVE, Validation.ValidationCommands(com));
+            Assert.AreEqual(CommandEnum.MOVE, validation.ValidationCommands(com));
         }
 
         [TestMethod]
@@ -88,8 +95,9 @@ namespace UnitTestToyRobot
         [DataRow("RIGHT")]
         public void TestValidationCommands_SuccessWithRightCommand(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.AreEqual(CommandEnum.RIGHT, Validation.ValidationCommands(com));
+            Assert.AreEqual(CommandEnum.RIGHT, validation.ValidationCommands(com));
         }
 
         [TestMethod]
@@ -98,8 +106,9 @@ namespace UnitTestToyRobot
         [DataRow("report")]
         public void TestValidationCommands_SuccessWithReportCommand(string com)
         {
+            var validation = new Validation();
             // act and assert
-            Assert.AreEqual(CommandEnum.REPORT, Validation.ValidationCommands(com));
+            Assert.AreEqual(CommandEnum.REPORT, validation.ValidationCommands(com));
         }
     }
 }

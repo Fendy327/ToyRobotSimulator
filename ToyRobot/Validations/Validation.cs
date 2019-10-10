@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ToyRobot
 {
-    public static class Validation
+    public class Validation:IValidation
     {
-        public static bool ValidateFirstCommand(string command)
+        public bool ValidateFirstCommand(string command)
         {
             var commandEnum = ValidateWithFirstLetterIsCorrect(command);
             if (commandEnum != CommandEnum.PLACE)
@@ -20,7 +20,7 @@ namespace ToyRobot
             return true;
         }
 
-        public static CommandEnum ValidationCommands(string command)
+        public CommandEnum ValidationCommands(string command)
         {
             ValidateWithCommandIsNullOrEmpty(command);
             var commandEnum = ValidateWithFirstLetterIsCorrect(command);
@@ -35,12 +35,12 @@ namespace ToyRobot
             return commandEnum;
         }
 
-        private static void ValidateWithCommandIsNullOrEmpty(string command)
+        private void ValidateWithCommandIsNullOrEmpty(string command)
         {
             if (string.IsNullOrEmpty(command)) throw new InvalidCommandException("Invalid command, cannot be null or empty.");
         }
 
-        private static CommandEnum ValidateWithFirstLetterIsCorrect(string command)
+        private CommandEnum ValidateWithFirstLetterIsCorrect(string command)
         {
             string[] result = command.Split(' ');
             CommandEnum commandEnum;
@@ -51,7 +51,7 @@ namespace ToyRobot
             return commandEnum;
         }
 
-        private static void ValidateWithPlaceCommand(string command)
+        private void ValidateWithPlaceCommand(string command)
         {
             string[] placeCommand = command.Substring(5).Split(new[] { ',' });
             if (placeCommand.Length != 3)
@@ -59,6 +59,11 @@ namespace ToyRobot
                 throw new InvalidCommandException("The First command should start from PLACE X,Y,F (Where X and Y are integers and F must be either NORTH, SOUTH, EAST or WEST).");
             }
 
+            int x, y;
+            if(!int.TryParse(placeCommand[0],out x)|| !int.TryParse(placeCommand[1], out y))
+            {
+                throw new InvalidCommandException("The Place command should start from PLACE X,Y,F, and x or y must be digit number");
+            }
             DirectionEnum directionEnum;
             if (!Enum.TryParse(placeCommand[2], true, out directionEnum))
             {
@@ -66,7 +71,7 @@ namespace ToyRobot
             }
         }
 
-        private static void validateWithNonPlaceCommand(string command)
+        private void validateWithNonPlaceCommand(string command)
         {
             string[] result = command.Split(' ');
             if(result.Length > 1)

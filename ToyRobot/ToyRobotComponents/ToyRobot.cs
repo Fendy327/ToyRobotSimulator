@@ -6,16 +6,27 @@ namespace ToyRobot
 {
     public class ToyRobot : IToyRobot
     {
+
         public List<string> listOfDirections = new List<string>() { "EAST", "SOUTH", "WEST", "NORTH" };
 
-        public string Direction{get; set;}
+        public string Direction { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+
+        private ITable table;
+        public ToyRobot(ITable table)
+        {
+            this.table = table;
+        }
         public void Place(int x, int y, string direction)
         {
-            X = x;
-            Y = y;
-            Direction = direction;
+            if (table.isValidPosition(x, y))
+            {
+                X = x;
+                Y = y;
+                Direction = direction;
+            }
+
         }
 
         public void Move()
@@ -26,16 +37,16 @@ namespace ToyRobot
             switch (directionEnum)
             {
                 case DirectionEnum.EAST:
-                    X += 1;
+                    if (table.isValidPosition(X + 1, Y)) X += 1;
                     break;
                 case DirectionEnum.SOUTH:
-                    Y -= 1;
+                    if (table.isValidPosition(X, Y - 1)) Y -= 1;
                     break;
                 case DirectionEnum.WEST:
-                    X -= 1;
+                    if (table.isValidPosition(X - 1, Y)) X -= 1;
                     break;
                 case DirectionEnum.NORTH:
-                    Y += 1;
+                    if (table.isValidPosition(X, Y + 1)) Y += 1;
                     break;
 
             }
@@ -60,7 +71,7 @@ namespace ToyRobot
         public string Report()
         {
             if (string.IsNullOrEmpty(Direction)) return null;
-            return X + "," + Y + "," + Direction.ToUpper();
+            return "Output: " + X + "," + Y + "," + Direction.ToUpper();
         }
 
 

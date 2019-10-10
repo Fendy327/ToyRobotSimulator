@@ -33,8 +33,9 @@ Enjoy!!!
 ");
 
             Table table = new Table(5, 5);
-            IToyRobot toyRobot = new ToyRobot();
-            Command command = new Command(table, toyRobot);
+            IToyRobot toyRobot = new ToyRobot(table);
+            IValidation validation = new Validation();
+            Command command = new Command(toyRobot, validation);
             while (true)
             {
                 try
